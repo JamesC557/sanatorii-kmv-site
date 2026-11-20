@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Значок «Санатории КМВ»</title>
+  <rect width="512" height="512" rx="112" fill="#24584A"/>
+  <path d="M61 320 190 153l63 79 64-137 134 225H61Z" fill="#FFFFFF"/>
+  <path d="m211 190-21-37-40 51 40-19 21 5Zm85-50 21-45 45 76-45-33-21 2Z" fill="#24584A" opacity=".3"/>
+  <path d="M119 367c56-32 125-32 181 0 39 22 79 24 121 2" fill="none" stroke="#FFFFFF" stroke-width="25" stroke-linecap="round"/>
+  <path d="M286 307c0 31-24 55-54 55s-54-24-54-55c0-30 54-93 54-93s54 63 54 93Z" fill="#E2A64A"/>
+</svg>
