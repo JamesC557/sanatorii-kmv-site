@@ -174,3 +174,21 @@ body[data-g="g2"] .hero-art{background-image:url(/img/hero-essentuki-desktop.jpg
 .opts{grid-template-columns:repeat(2,minmax(0,1fr))}.opts.four{grid-template-columns:repeat(4,minmax(0,1fr))}.opts label{min-width:0;overflow-wrap:anywhere}
 @media(max-width:720px){.opts.four{grid-template-columns:repeat(2,minmax(0,1fr))}.opts label{padding:12px 10px;font-size:15px;gap:8px}}
 @media(max-width:480px){.opts{grid-template-columns:minmax(0,1fr)}.opts.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Связки и дополнительные CTA */
+.bridge{margin:16px 0 0;color:var(--muted);font-size:15px}
+.band{background:var(--water);padding-block:28px}
+.band-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px}
+.band-in b{display:block;font-family:var(--display);font-weight:400;font-size:24px;line-height:1.2}
+.band-in span{color:var(--muted);font-size:16px}
+.band-btns{display:flex;flex-wrap:wrap;gap:10px}
+.sticky{display:none}
+@media(max-width:720px){
+  .band-btns{width:100%}.band-btns .btn{flex:1 1 auto}
+  .sticky{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:rgba(255,253,248,.96);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
+  .sticky.on{transform:none}.sticky .btn{flex:1;padding:12px 10px;font-size:15px}.sticky .ghost{flex:0 0 auto}
+  body{padding-bottom:72px}
+  .ck{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+.hero-art{background-image:var(--hd,url(/img/hero-kmv-desktop.jpg))}
+@media(max-width:720px){.hero-art{background-image:var(--hm,url(/img/hero-kmv-mobile.jpg))!important}}

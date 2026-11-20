@@ -27,7 +27,7 @@
     g2: { k: 'Ессентуки · питьевые воды и грязелечение', t: 'Санатории Ессентуков — желудок, печень, диабет', l: 'Предложим санаторий в Ессентуках с программой для ЖКТ и обмена веществ. Путёвка, дорога и трансфер — в одних руках.', r: 'Ессентуки' }
   };
   var gkey = document.body.dataset.g || ((params.get('g') || params.get('utm_content') || load('utm_content') || '').match(/^g\d/) || [''])[0];
-  var hv = HERO[gkey];
+  var hv = document.body.dataset.g ? null : HERO[gkey];
   if (hv) {
     document.getElementById('heroKicker').textContent = hv.k;
     document.getElementById('heroTitle').textContent = hv.t;
@@ -66,6 +66,14 @@
     });
   }
 
+  // Липкая кнопка на телефоне: видна после первого экрана, скрыта у опроса и формы внизу
+  var st = document.getElementById('sticky');
+  if (st && 'IntersectionObserver' in window) {
+    var hide = 0; var hero = document.querySelector('.hero'), quiz = document.getElementById('quiz'), cta = document.querySelector('.cta'), foot = document.querySelector('.foot');
+    var vis = new Map();
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { vis.set(e.target, e.isIntersecting) }); var block = [hero, quiz, cta, foot].some(function (el) { return el && vis.get(el) }); st.classList.toggle('on', !block); });
+    [hero, quiz, cta, foot].forEach(function (el) { if (el) io.observe(el) });
+  }
   var form = document.getElementById('q'); if (!form) return;
   var steps = [].slice.call(form.querySelectorAll('.qstep')), cur = 0, started = false;
   var next = document.getElementById('next'), back = document.getElementById('back'), send = document.getElementById('send'), prog = document.getElementById('prog'), status = document.getElementById('qstatus');
