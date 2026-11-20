@@ -19,6 +19,26 @@
     a.addEventListener('click', function () { var r = document.querySelector('input[name=resort][value="' + a.dataset.resort + '"]'); if (r) r.checked = true; });
   });
 
+
+  // Заголовок под группу объявлений (utm_content = g1_..., g2_..., g3_...; для проверки ?g=g1)
+  var HERO = {
+    g1: { k: 'Кисловодск · нарзан и горный воздух', t: 'Санатории Кисловодска — подбор под ваше лечение', l: 'Подберём санаторий в Кисловодске по профилю лечения и бюджету. Путёвка по цене санатория, плюс дорога и трансфер.', r: 'Кисловодск' },
+    g2: { k: 'Ессентуки · питьевые воды и грязелечение', t: 'Санатории Ессентуков — желудок, печень, диабет', l: 'Сравним санатории Ессентуков с сильным профилем ЖКТ и обмена веществ. Путёвка, дорога и трансфер — в одних руках.', r: 'Ессентуки' }
+  };
+  var gkey = ((params.get('g') || params.get('utm_content') || load('utm_content') || '').match(/^g\d/) || [''])[0];
+  var hv = HERO[gkey];
+  if (hv) {
+    document.getElementById('heroKicker').textContent = hv.k;
+    document.getElementById('heroTitle').textContent = hv.t;
+    document.getElementById('heroLead').textContent = hv.l;
+    var rr = document.querySelector('input[name=resort][value="' + hv.r + '"]'); if (rr) rr.checked = true;
+  }
+  if (gkey) document.querySelectorAll('.resort[data-g="' + gkey + '"]').forEach(function (el) { el.classList.add('is-match') });
+  if (C.phone) { var tp = document.getElementById('topPhone'); tp.hidden = false; tp.textContent = C.phone; tp.href = 'tel:' + C.phone.replace(/[^\d+]/g, ''); }
+  document.querySelectorAll('[data-profile]').forEach(function (a) {
+    a.addEventListener('click', function () { var c = document.querySelector('input[name=profile][value="' + a.dataset.profile + '"]'); if (c) c.checked = true; });
+  });
+
   var form = document.getElementById('q'); if (!form) return;
   var steps = [].slice.call(form.querySelectorAll('.qstep')), cur = 0, started = false;
   var next = document.getElementById('next'), back = document.getElementById('back'), send = document.getElementById('send'), prog = document.getElementById('prog'), status = document.getElementById('qstatus');
@@ -27,7 +47,7 @@
   function show(i) {
     steps.forEach(function (s, j) { s.classList.toggle('is-active', j === i) });
     cur = i; back.hidden = i === 0; next.hidden = i === steps.length - 1; send.hidden = i !== steps.length - 1;
-    prog.textContent = 'Шаг ' + (i + 1) + ' из ' + steps.length; status.textContent = '';
+    prog.textContent = 'Вопрос ' + (i + 1) + ' из ' + steps.length; document.getElementById('qbarFill').style.width = ((i + 1) / steps.length * 100) + '%'; status.textContent = '';
     if (i > 0) goal('quiz_step_' + (i + 1));
   }
   form.addEventListener('change', function () { if (!started) { started = true; goal('quiz_start'); } });
