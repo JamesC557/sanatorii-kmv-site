@@ -124,7 +124,7 @@
     keys.forEach(function (k) { var v = params.get(k) || load(k); if (v) b.set(k, v); });
 
     send.disabled = true; send.textContent = 'Отправляем…';
-    fetch(C.endpoint, { method: 'POST', mode: 'no-cors', body: b, keepalive: true }).catch(function () {});
+    if (C.endpoint) fetch(C.endpoint, { method: 'POST', mode: 'no-cors', body: b, keepalive: true }).catch(function () {});
     goal('lead_sent');
     setTimeout(function () { form.hidden = true; document.getElementById('done').hidden = false; }, 600);
   });
