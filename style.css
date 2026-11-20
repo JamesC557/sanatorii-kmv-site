@@ -192,3 +192,11 @@ body[data-g="g2"] .hero-art{background-image:url(/img/hero-essentuki-desktop.jpg
 }
 .hero-art{background-image:var(--hd,url(/img/hero-kmv-desktop.jpg))}
 @media(max-width:720px){.hero-art{background-image:var(--hm,url(/img/hero-kmv-mobile.jpg))!important}}
+/* Первый экран на телефоне: кнопка видна без прокрутки */
+@media(max-width:720px){
+  .hero-art{height:190px}
+  h1{font-size:28px;line-height:1.12;margin:.15em 0 .3em}
+  .kicker{font-size:13px;padding:4px 10px}
+  .lead{font-size:16px;line-height:1.45;margin-bottom:16px}
+  .hero-actions{gap:10px}.hero-actions .btn-lg{padding:15px 22px;font-size:17px}
+}
