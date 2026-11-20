@@ -171,3 +171,6 @@ body[data-g="g2"] .hero-art{background-image:url(/img/hero-essentuki-desktop.jpg
 .price img,.consult,.tile img{height:auto}
 .tile img{height:100%}
 @media(max-width:720px){.consult{height:88px}}
+.opts{grid-template-columns:repeat(2,minmax(0,1fr))}.opts.four{grid-template-columns:repeat(4,minmax(0,1fr))}.opts label{min-width:0;overflow-wrap:anywhere}
+@media(max-width:720px){.opts.four{grid-template-columns:repeat(2,minmax(0,1fr))}.opts label{padding:12px 10px;font-size:15px;gap:8px}}
+@media(max-width:480px){.opts{grid-template-columns:minmax(0,1fr)}.opts.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
