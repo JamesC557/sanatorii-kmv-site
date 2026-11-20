@@ -35,10 +35,38 @@
   }
   if (gkey) document.body.dataset.g = gkey;
   if (gkey) document.querySelectorAll('.resort[data-g="' + gkey + '"]').forEach(function (el) { el.classList.add('is-match') });
-  if (C.phone) { var tp = document.getElementById('topPhone'); tp.hidden = false; tp.textContent = C.phone; tp.href = 'tel:' + C.phone.replace(/[^\d+]/g, ''); }
   document.querySelectorAll('[data-profile]').forEach(function (a) {
     a.addEventListener('click', function () { var c = document.querySelector('input[name=profile][value="' + a.dataset.profile + '"]'); if (c) c.checked = true; });
   });
+
+  function _unused(v) { var d = digits(v); if (d[0] === '8') d = '7' + d.slice(1); if (d[0] !== '7') d = '7' + d; d = d.slice(0, 11); var r = d.slice(1), o = '+7'; if (r.length) o += ' (' + r.slice(0, 3); if (r.length >= 3) o += ')'; if (r.length > 3) o += ' ' + r.slice(3, 6); if (r.length > 6) o += '-' + r.slice(6, 8); if (r.length > 8) o += '-' + r.slice(8, 10); return o + (r.length ? '' : ' '); }
+
+  // Обратный звонок
+  var cb = document.getElementById('cb');
+  if (cb) {
+    var cbf = document.getElementById('cbForm'), cbp = document.getElementById('cbPhone');
+    document.querySelectorAll('[data-callback]').forEach(function (b) { b.addEventListener('click', function () { cb.hidden = false; goal('callback_open'); document.getElementById('cbName').focus(); }) });
+    function cbClose() { cb.hidden = true }
+    cb.addEventListener('click', function (e) { if (e.target === cb || e.target.hasAttribute('data-cb-close')) cbClose(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cbClose(); });
+    cbp.addEventListener('input', function () { cbp.value = fmt(cbp.value) });
+    cbf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nm = document.getElementById('cbName'), st = document.getElementById('cbStatus');
+      if (!nm.value.trim() || digits(cbp.value).length !== 11 || !document.getElementById('cbConsent').checked) { st.textContent = 'Проверьте имя, телефон и согласие'; return; }
+      var b = new URLSearchParams();
+      b.set('product_id', C.productId); b.set('tour_name', C.productName + ' — обратный звонок'); b.set('format', 'обратный звонок');
+      b.set('source', C.source.replace('квиз', 'обратный звонок')); b.set('submission_id', (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'cb-' + Date.now());
+      b.set('name', nm.value.trim()); b.set('phone', cbp.value); b.set('adults', '1'); b.set('children', '0');
+      b.set('comment', 'Обратный звонок. Удобное время: ' + document.getElementById('cbTime').value); b.set('privacy_consent', 'yes');
+      b.set('page_url', location.href); b.set('first_landing_page', load('first_landing') || location.href);
+      keys.forEach(function (k) { var v = params.get(k) || load(k); if (v) b.set(k, v); });
+      if (C.endpoint) fetch(C.endpoint, { method: 'POST', mode: 'no-cors', body: b, keepalive: true }).catch(function () {});
+      goal('lead_sent'); goal('callback_sent');
+      [].forEach.call(cbf.querySelectorAll('.fld,.chk,#cbSend,.qhint,#cbTitle'), function (x) { x.hidden = true });
+      document.getElementById('cbDone').hidden = false;
+    });
+  }
 
   var form = document.getElementById('q'); if (!form) return;
   var steps = [].slice.call(form.querySelectorAll('.qstep')), cur = 0, started = false;

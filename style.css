@@ -140,3 +140,11 @@ body[data-g="g2"] .hero-art{background-image:url(/img/hero-essentuki-desktop.jpg
   .hero{background:var(--paper)}.hero-in{padding-top:8px}
   .promise{margin-top:28px;border-radius:18px;box-shadow:none;border:1px solid var(--line);margin-bottom:8px}
 }
+
+/* Обратный звонок */
+.btn.ghost-light{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.8)}
+.hero-actions .btn.ghost{background:rgba(255,253,248,.85)}
+.cb{position:fixed;inset:0;z-index:50;background:rgba(16,36,30,.55);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.cb-box{position:relative;background:#fff;border-radius:24px;padding:30px;width:100%;max-width:440px;box-shadow:0 30px 70px rgba(0,0,0,.25)}
+.cb-box h3{font-size:26px;margin:0 0 6px}.cb-box .btn{width:100%;margin-top:6px}
+.cb-x{position:absolute;top:10px;right:14px;border:0;background:none;font-size:32px;line-height:1;color:var(--muted);cursor:pointer}
