@@ -2,7 +2,7 @@
 """Собирает посадочные из template.html: одна страница на группу объявлений (запрос → объявление → страница)."""
 import re, os
 T = open('template.html', encoding='utf-8').read()
-V = '10'
+V = '11'
 IMG = {'std': 'price-standard', 'cmf': 'price-comfort', 'prm': 'price-premium'}
 def price(city_stars, name, rub, note):
     per = int(rub.replace(' ', ''))
@@ -63,6 +63,7 @@ P = {
    hd='hero-kislovodsk-desktop', hm='hero-kislovodsk-mobile', resort='Не важно', first=None,
    ph='Сколько стоит санаторий для пенсионеров', prices=[price('Пятигорск','«Лесная поляна»','5 200',''),price('Железноводск','«Елизавета — Минеральные Воды»','6 500',''),price('Кисловодск','«Центросоюз»','6 630','')]),
 }
+TAILS = {'': 'Подбираем и среди других санаториев всех четырёх курортов.', 'kislovodsk': 'Подбираем и среди других санаториев Кисловодска.', 'essentuki': 'Подбираем и среди других санаториев Ессентуков.', 'pyatigorsk': 'Подбираем и среди других санаториев Пятигорска.', 'zheleznovodsk': 'Подбираем и среди других санаториев Железноводска.', 'sustavy': 'Подбираем и среди других санаториев с лечением опорно-двигательного аппарата.', 'zhkt': 'Подбираем и среди других санаториев с лечением ЖКТ.', 'nedorogo': 'Подбираем и среди других недорогих санаториев всех четырёх курортов.', 'pensioneram': 'Подбираем и среди других санаториев, удобных для старшего возраста.'}
 def build(slug, c):
     s = T
     s = re.sub(r'<title>.*?</title>', '<title>%s</title>' % c['title'], s, flags=re.S)
@@ -90,6 +91,7 @@ def build(slug, c):
         cards.append('<div class="price%s"><img src="/img/%s.jpg" alt="" loading="lazy" width="1200" height="800"><span class="p-cls">%s</span><h3>%s</h3><b>от %s ₽</b><span>сутки на человека с лечением и питанием</span><em>14 дней — от %s ₽</em></div>' % (' hl' if i == 1 else '', img, city, name, rub, d14))
     s = re.sub(r'<div class="price-grid">.*?</div>\s*</div>\s*<p class="fine">', '<div class="price-grid">\n      ' + '\n      '.join(cards) + '\n    </div>\n    <p class="fine">', s, count=1, flags=re.S)
     s = re.sub(r'(<section id="prices"[^>]*>\s*<div class="wrap">\s*<div class="sec-head"><h2>)[^<]*', r'\g<1>' + c['ph'], s)
+    s = s.replace('{{PRICE_TAIL}}', TAILS[slug])
     s = re.sub(r'\?v=\d+', '?v=' + V, s)
     path = (slug + '/' if slug else '') + 'index.html'
     if slug: os.makedirs(slug, exist_ok=True)

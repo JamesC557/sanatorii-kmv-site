@@ -200,3 +200,15 @@ body[data-g="g2"] .hero-art{background-image:url(/img/hero-essentuki-desktop.jpg
   .lead{font-size:16px;line-height:1.45;margin-bottom:16px}
   .hero-actions{gap:10px}.hero-actions .btn-lg{padding:15px 22px;font-size:17px}
 }
+
+/* Правки по iPhone */
+.fld-note{font-weight:500;color:var(--muted);font-size:13px}
+.opts label{overflow-wrap:normal;word-break:normal;hyphens:none}
+@media(max-width:720px){
+  .top-cta{display:none}
+  .qnav{display:grid;grid-template-columns:auto 1fr;gap:12px}
+  .qnav .prog{grid-column:1/-1;grid-row:1;margin:0;text-align:center}
+  .qnav #back{grid-column:1}.qnav #next,.qnav #send{grid-column:2;white-space:nowrap}
+  .qnav #back[hidden]+.prog+#next,.qnav #back[hidden]~#next{grid-column:1/-1}
+  .sticky .ghost{padding-inline:14px}
+}
