@@ -1,8 +1,7 @@
 // Настройки сайта. Заполнить перед публикацией.
 window.SITE_CONFIG = {
-  // CRM-приёмник заявок (тот же Apps Script, что у экскурсиинабайкал.рф).
-  // ВАЖНО: до запуска проверить, что приёмник принимает product_id 'sanatorii-kmv' (не проверено).
-  endpoint: 'https://script.google.com/macros/s/AKfycbwf8JSw48_LYH2bg2ohqGEabD3_RWMYlP41yYou2KAAU8LQfUXF_2jjdOSQQJh7rIaN/exec',
+  // Собственный приёмник заявок на хостинге. В общую CRM заявки НЕ отправляются до запуска продукта.
+  endpoint: '/api/lead.php',
   productId: 'sanatorii-kmv',
   productName: 'Подбор санатория КМВ',
   source: 'санаториикмв.рф — квиз',

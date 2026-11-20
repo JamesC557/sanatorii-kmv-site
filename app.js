@@ -61,7 +61,7 @@
       b.set('comment', 'Обратный звонок. Удобное время: ' + document.getElementById('cbTime').value); b.set('privacy_consent', 'yes');
       b.set('page_url', location.href); b.set('first_landing_page', load('first_landing') || location.href);
       keys.forEach(function (k) { var v = params.get(k) || load(k); if (v) b.set(k, v); });
-      if (C.endpoint) fetch(C.endpoint, { method: 'POST', mode: 'no-cors', body: b, keepalive: true }).catch(function () {});
+      if (C.endpoint) fetch(C.endpoint, { method: 'POST', body: b, keepalive: true }).catch(function () {});
       goal('lead_sent'); goal('callback_sent');
       [].forEach.call(cbf.querySelectorAll('.fld,.chk,#cbSend,.qhint,#cbTitle'), function (x) { x.hidden = true });
       document.getElementById('cbDone').hidden = false;
@@ -124,7 +124,7 @@
     keys.forEach(function (k) { var v = params.get(k) || load(k); if (v) b.set(k, v); });
 
     send.disabled = true; send.textContent = 'Отправляем…';
-    if (C.endpoint) fetch(C.endpoint, { method: 'POST', mode: 'no-cors', body: b, keepalive: true }).catch(function () {});
+    if (C.endpoint) fetch(C.endpoint, { method: 'POST', body: b, keepalive: true }).catch(function () {});
     goal('lead_sent');
     setTimeout(function () { form.hidden = true; document.getElementById('done').hidden = false; }, 600);
   });
