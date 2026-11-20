@@ -8,8 +8,9 @@
 <link rel="canonical" href="https://санаториикмв.рф/">
 <meta property="og:title" content="Санатории КМВ — подбор под ваше лечение">
 <meta property="og:description" content="Кисловодск, Ессентуки, Пятигорск, Железноводск. Путёвка, дорога и трансфер.">
-<meta property="og:image" content="/og.svg">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:image" content="/img/og.jpg">
+<link rel="icon" href="/brand/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/brand/icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/style.css">
@@ -17,7 +18,7 @@
 <body>
 <header class="top">
   <div class="wrap top-in">
-    <a class="logo" href="/"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="currentColor" opacity=".12"/><path d="M6 28 15 15l5 7 4-5 10 11z" fill="currentColor"/><circle cx="28" cy="12" r="3" fill="var(--sun)"/></svg><span><b>Санатории КМВ</b><small>подбор под ваше лечение</small></span></a>
+    <a class="logo" href="/"><img src="/brand/icon.svg" alt="" width="44" height="44"><span><b>Санатории КМВ</b><small>подбор под ваше лечение</small></span></a>
     <nav><a href="#resorts">Курорты</a><a href="#prices">Цены</a><a href="#how">Как подбираем</a><a href="#faq">Вопросы</a></nav>
     <div class="top-cta">
       <a class="top-phone" id="topPhone" hidden></a>
@@ -27,23 +28,7 @@
 </header>
 
 <section class="hero">
-  <div class="hero-art" aria-hidden="true">
-    <svg viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice">
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe6ec"/><stop offset="1" stop-color="#f6efe2"/></linearGradient>
-        <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fbfc4"/><stop offset="1" stop-color="#c9dcd8"/></linearGradient>
-        <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5f9182"/><stop offset="1" stop-color="#86ad98"/></linearGradient>
-        <linearGradient id="m3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f5f4f"/><stop offset="1" stop-color="#3f7462"/></linearGradient>
-      </defs>
-      <rect width="1440" height="520" fill="url(#sky)"/>
-      <circle cx="1180" cy="120" r="54" fill="#f3d8a1" opacity=".9"/>
-      <path d="M760 300 905 150l40 36 30-58 52 50 40-30 150 152z" fill="#eef5f6"/>
-      <path d="M905 150l40 36 30-58 52 50 40-30 40 40-60-10-38 22-36-38-30 42-40-30z" fill="#ffffff"/>
-      <path d="M0 360 140 290l120 40 160-90 140 70 120-50 160 80 140-60 180 90 140-50 140 70v200H0z" fill="url(#m1)"/>
-      <path d="M0 420 120 360l140 50 120-70 160 80 120-40 140 60 160-70 140 70 160-50 180 70v120H0z" fill="url(#m2)"/>
-      <path d="M0 470 200 420l180 40 200-50 220 60 200-40 220 50 220-30v90H0z" fill="url(#m3)"/>
-    </svg>
-  </div>
+  <div class="hero-art" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <div class="hero-copy">
       <p class="kicker" id="heroKicker">Кисловодск · Ессентуки · Пятигорск · Железноводск</p>
@@ -65,15 +50,15 @@
 <section class="profiles">
   <div class="wrap">
     <p class="eyebrow">Что лечат на Кавминводах</p>
-    <div class="chips">
-      <a href="#quiz" data-profile="ЖКТ, печень">Желудок и кишечник</a>
-      <a href="#quiz" data-profile="ЖКТ, печень">Печень</a>
-      <a href="#quiz" data-profile="Суставы, позвоночник">Суставы и позвоночник</a>
-      <a href="#quiz" data-profile="Сердце, сосуды">Сердце и сосуды</a>
-      <a href="#quiz" data-profile="Нервная система">Нервная система</a>
-      <a href="#quiz" data-profile="Диабет, обмен веществ">Диабет и обмен веществ</a>
-      <a href="#quiz" data-profile="Дыхание">Органы дыхания</a>
-      <a href="#quiz" data-profile="Урология, гинекология">Урология, гинекология</a>
+    <div class="tiles">
+      <a href="#quiz" data-profile="ЖКТ, печень" class="tile"><img src="/img/treat-gi.jpg" alt="" loading="lazy" width="800" height="800"><span>Желудок, кишечник, печень</span></a>
+      <a href="#quiz" data-profile="Суставы, позвоночник" class="tile"><img src="/img/treat-joints.jpg" alt="" loading="lazy" width="800" height="800"><span>Суставы и позвоночник</span></a>
+      <a href="#quiz" data-profile="Сердце, сосуды" class="tile"><img src="/img/treat-heart.jpg" alt="" loading="lazy" width="800" height="800"><span>Сердце и сосуды</span></a>
+      <a href="#quiz" data-profile="Нервная система" class="tile"><img src="/img/treat-nerves.jpg" alt="" loading="lazy" width="800" height="800"><span>Нервная система</span></a>
+      <a href="#quiz" data-profile="Диабет, обмен веществ" class="tile"><img src="/img/treat-diabetes.jpg" alt="" loading="lazy" width="800" height="800"><span>Диабет и обмен веществ</span></a>
+      <a href="#quiz" data-profile="Дыхание" class="tile"><img src="/img/treat-breath.jpg" alt="" loading="lazy" width="800" height="800"><span>Органы дыхания</span></a>
+      <a href="#quiz" data-profile="Урология, гинекология" class="tile"><img src="/img/treat-uro.jpg" alt="" loading="lazy" width="800" height="800"><span>Урология, гинекология</span></a>
+      <a href="#quiz" data-profile="Общее оздоровление" class="tile"><img src="/img/treat-wellness.jpg" alt="" loading="lazy" width="800" height="800"><span>Оздоровление и отдых</span></a>
     </div>
   </div>
 </section>
@@ -83,25 +68,25 @@
     <div class="sec-head"><h2>Четыре курорта — четыре разных лечения</h2><p>Курорты в 20–40 минутах друг от друга, но вода, климат и процедуры у каждого свои. Поэтому сначала выбираем курорт под задачу, потом санаторий.</p></div>
     <div class="resorts">
       <article class="resort" data-g="g1">
-        <div class="r-top" style="--tone:#5d8fa3"><span class="r-water">Нарзан</span><h3>Кисловодск</h3></div>
+        <div class="r-top" style="background-image:url(/img/resort-kislovodsk.jpg)"><span class="r-water">Нарзан</span><h3>Кисловодск</h3></div>
         <p>Горный воздух, нарзанные ванны, терренкуры в самом большом курортном парке Европы.</p>
         <p class="r-for"><b>Подходит:</b> сердце и сосуды, органы дыхания, нервная система, восстановление.</p>
         <a href="#quiz" data-resort="Кисловодск" class="r-link">Подобрать в Кисловодске →</a>
       </article>
       <article class="resort" data-g="g2">
-        <div class="r-top" style="--tone:#5f9182"><span class="r-water">Ессентуки №4, №17</span><h3>Ессентуки</h3></div>
+        <div class="r-top" style="background-image:url(/img/resort-essentuki.jpg)"><span class="r-water">Ессентуки №4, №17</span><h3>Ессентуки</h3></div>
         <p>Главный питьевой курорт страны и грязелечебница им. Семашко.</p>
         <p class="r-for"><b>Подходит:</b> желудок и кишечник, печень, диабет и обмен веществ.</p>
         <a href="#quiz" data-resort="Ессентуки" class="r-link">Подобрать в Ессентуках →</a>
       </article>
       <article class="resort" data-g="g3">
-        <div class="r-top" style="--tone:#a07a55"><span class="r-water">Радон, грязи</span><h3>Пятигорск</h3></div>
+        <div class="r-top" style="background-image:url(/img/resort-pyatigorsk.jpg)"><span class="r-water">Радон, грязи</span><h3>Пятигорск</h3></div>
         <p>Радоновые ванны и тамбуканская грязь — одно из сильных направлений в России.</p>
         <p class="r-for"><b>Подходит:</b> суставы и позвоночник, кожа, нервная система, гинекология.</p>
         <a href="#quiz" data-resort="Пятигорск" class="r-link">Подобрать в Пятигорске →</a>
       </article>
       <article class="resort" data-g="g3">
-        <div class="r-top" style="--tone:#7c8f6a"><span class="r-water">Славяновская, Смирновская</span><h3>Железноводск</h3></div>
+        <div class="r-top" style="background-image:url(/img/resort-zheleznovodsk.jpg)"><span class="r-water">Славяновская, Смирновская</span><h3>Железноводск</h3></div>
         <p>Тихий зелёный курорт у горы Железной, тёплые питьевые воды.</p>
         <p class="r-for"><b>Подходит:</b> урология и почки, желудок и кишечник.</p>
         <a href="#quiz" data-resort="Железноводск" class="r-link">Подобрать в Железноводске →</a>
@@ -115,9 +100,9 @@
   <div class="wrap">
     <div class="sec-head"><h2>Сколько стоит путёвка с лечением</h2><p>Цена за сутки на человека: проживание, питание и лечение по профилю. Примеры открытых цен санаториев на ноябрь 2026 — точную стоимость на ваши даты пришлём после подбора.</p></div>
     <div class="price-grid">
-      <div class="price"><span class="p-cls">Железноводск · 4*</span><h3>«Елизавета — Минеральные Воды»</h3><b>от 6 500 ₽</b><span>сутки на человека с лечением, 19 профилей</span><em>14 дней — от 91 000 ₽</em></div>
-      <div class="price hl"><span class="p-cls">Ессентуки · 4*</span><h3>«Казахстан»</h3><b>от 9 600 ₽</b><span>сутки на человека с лечением, 20 профилей</span><em>14 дней — от 134 400 ₽</em></div>
-      <div class="price"><span class="p-cls">Железноводск · 4*</span><h3>«Плаза»</h3><b>от 9 700 ₽</b><span>сутки на человека с лечением, 23 профиля</span><em>14 дней — от 135 800 ₽</em></div>
+      <div class="price"><img src="/img/price-standard.jpg" alt="" loading="lazy" width="1200" height="800"><span class="p-cls">Железноводск · 4*</span><h3>«Елизавета — Минеральные Воды»</h3><b>от 6 500 ₽</b><span>сутки на человека с лечением, 19 профилей</span><em>14 дней — от 91 000 ₽</em></div>
+      <div class="price hl"><img src="/img/price-comfort.jpg" alt="" loading="lazy" width="1200" height="800"><span class="p-cls">Ессентуки · 4*</span><h3>«Казахстан»</h3><b>от 9 600 ₽</b><span>сутки на человека с лечением, 20 профилей</span><em>14 дней — от 134 400 ₽</em></div>
+      <div class="price"><img src="/img/price-premium.jpg" alt="" loading="lazy" width="1200" height="800"><span class="p-cls">Железноводск · 4*</span><h3>«Плаза»</h3><b>от 9 700 ₽</b><span>сутки на человека с лечением, 23 профиля</span><em>14 дней — от 135 800 ₽</em></div>
     </div>
     <p class="fine">Ориентиры, не оферта: опубликованные цены «от», ноябрь 2026. Цена зависит от сезона, номера и программы; в праздники и летом выше. Подбираем и среди других санаториев всех четырёх курортов.</p>
   </div>
@@ -138,6 +123,7 @@
 <section id="quiz" class="block quiz-sec">
   <div class="wrap quiz-wrap">
     <div class="quiz-aside">
+      <img class="consult" src="/img/consultant.jpg" alt="" loading="lazy" width="900" height="1100">
       <h2>Подбор санатория</h2>
       <p>Ответьте на 5 вопросов — подберём 2–3 подходящих санатория и пришлём цены на ваши даты.</p>
       <ul class="aside-list">

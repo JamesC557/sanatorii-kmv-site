@@ -33,6 +33,7 @@
     document.getElementById('heroLead').textContent = hv.l;
     var rr = document.querySelector('input[name=resort][value="' + hv.r + '"]'); if (rr) rr.checked = true;
   }
+  if (gkey) document.body.dataset.g = gkey;
   if (gkey) document.querySelectorAll('.resort[data-g="' + gkey + '"]').forEach(function (el) { el.classList.add('is-match') });
   if (C.phone) { var tp = document.getElementById('topPhone'); tp.hidden = false; tp.textContent = C.phone; tp.href = 'tel:' + C.phone.replace(/[^\d+]/g, ''); }
   document.querySelectorAll('[data-profile]').forEach(function (a) {

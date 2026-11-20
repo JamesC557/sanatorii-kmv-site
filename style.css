@@ -106,3 +106,37 @@ details p{color:var(--muted);margin:10px 0 0}
 @media(max-width:720px){body{font-size:17px}.hero{padding-block:40px 0}.promise{grid-template-columns:1fr;margin-top:170px;gap:14px}.price-grid,.why{grid-template-columns:1fr}.opts.four{grid-template-columns:1fr 1fr}.logo small{display:none}.top-phone{display:none}form#q,.done{padding:22px}}
 @media(max-width:480px){.resorts,.steps,.opts,.grid2{grid-template-columns:1fr}.btn-lg{width:100%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* ===== Фото (images-v1) ===== */
+.logo img{width:44px;height:44px;border-radius:12px;flex:none}
+.hero{background:#2a4f45}
+.hero-art{background:url(/img/hero-kmv-desktop.jpg) center right/cover no-repeat}
+.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,253,248,.96) 0%,rgba(255,253,248,.88) 34%,rgba(255,253,248,.35) 58%,rgba(255,253,248,0) 75%)}
+body[data-g="g1"] .hero-art{background-image:url(/img/hero-kislovodsk-desktop.jpg)}
+body[data-g="g2"] .hero-art{background-image:url(/img/hero-essentuki-desktop.jpg)}
+.hero{padding-block:96px 0}.hero-copy{text-shadow:none}
+.promise{margin-top:150px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{position:relative;display:block;border-radius:18px;overflow:hidden;aspect-ratio:4/3;max-width:100%;text-decoration:none}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.tile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(18,40,34,.78))}
+.tile span{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;color:#fff;font-weight:700;font-size:17px;line-height:1.25}
+.tile:hover img{transform:scale(1.04)}
+.r-top{position:relative;background-size:cover;background-position:center;min-height:190px}
+.r-top:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(16,36,30,.8))}
+.r-top>*{position:relative}
+.price{padding:0 0 24px;overflow:hidden}.price>*:not(img){margin-inline:24px}
+.price img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;margin-bottom:12px}
+.consult{width:100%;max-width:340px;aspect-ratio:9/11;object-fit:cover;border-radius:22px;display:block;margin-bottom:22px;box-shadow:0 16px 40px rgba(20,60,50,.15)}
+.quiz-sec{background:linear-gradient(rgba(255,253,248,.82),rgba(255,253,248,.92)),url(/img/quiz-bg.jpg) center/cover}
+.cta{background:linear-gradient(90deg,rgba(20,48,40,.88),rgba(20,48,40,.55)),url(/img/cta-bg.jpg) center/cover;padding-block:96px}
+@media(max-width:980px){.tiles{grid-template-columns:repeat(2,1fr)}.consult{max-width:260px}}
+@media(max-width:720px){
+  .hero{padding-block:0}
+  .hero-art{position:relative;height:300px;background-image:url(/img/hero-kmv-mobile.jpg);background-position:center 30%}
+  body[data-g="g1"] .hero-art{background-image:url(/img/hero-kislovodsk-mobile.jpg)}
+  body[data-g="g2"] .hero-art{background-image:url(/img/hero-essentuki-mobile.jpg)}
+  .hero-art:after{background:linear-gradient(180deg,rgba(255,253,248,0) 55%,var(--paper))}
+  .hero{background:var(--paper)}.hero-in{padding-top:8px}
+  .promise{margin-top:28px;border-radius:18px;box-shadow:none;border:1px solid var(--line);margin-bottom:8px}
+}
