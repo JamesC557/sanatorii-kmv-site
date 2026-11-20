@@ -168,3 +168,6 @@ body[data-g="g2"] .hero-art{background-image:url(/img/hero-essentuki-desktop.jpg
   .top-in .btn-sm{padding:9px 14px;font-size:14px}
   .logo b{font-size:19px}
 }
+.price img,.consult,.tile img{height:auto}
+.tile img{height:100%}
+@media(max-width:720px){.consult{height:88px}}
