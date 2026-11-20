@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#24584A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/style.css?v=14">
+<link rel="stylesheet" href="/style.css?v=15">
 </head>
 <body data-g="g3">
 <header class="top">
@@ -37,8 +37,8 @@
       <p class="lead" id="heroLead">Подскажем, в каком санатории Пятигорска вам будет хорошо, — и поможем всё устроить: путёвку по цене санатория, дорогу и встречу на месте.</p>
       <div class="hero-actions">
         <a class="btn btn-lg" href="#quiz" data-goal="cta_hero">Подобрать санаторий</a>
-        <button type="button" class="btn ghost btn-lg" data-callback data-goal="cb_hero">Перезвоните мне</button>
-        <span class="hero-note">Подбор бесплатно · перезвоним в течение рабочего дня</span>
+        <button type="button" class="btn ghost btn-lg" data-callback data-goal="cb_hero">Написать нам</button>
+        <span class="hero-note">Подбор бесплатно · ответим письмом в течение рабочего дня</span>
         <span class="hero-warn">Имеются противопоказания. Необходима консультация специалиста.</span>
       </div>
     </div>
@@ -100,7 +100,7 @@
   </div>
 </section>
 
-<section class="band"><div class="wrap band-in"><div><b>Не знаете, какой курорт выбрать?</b><span>Ответьте на 5 вопросов — предложим 2–3 подходящих санатория.</span></div><div class="band-btns"><a class="btn" href="#quiz" data-goal="cta_resorts">Подобрать санаторий</a><button type="button" class="btn ghost" data-callback data-goal="cta_resorts_cb">Перезвоните мне</button></div></div></section>
+<section class="band"><div class="wrap band-in"><div><b>Не знаете, какой курорт выбрать?</b><span>Ответьте на 5 вопросов — предложим 2–3 подходящих санатория.</span></div><div class="band-btns"><a class="btn" href="#quiz" data-goal="cta_resorts">Подобрать санаторий</a><button type="button" class="btn ghost" data-callback data-goal="cta_resorts_cb">Написать нам</button></div></div></section>
 
 <section id="prices" class="block tint">
   <div class="wrap">
@@ -114,15 +114,15 @@
   </div>
 </section>
 
-<section class="band"><div class="wrap band-in"><div><b>Нужны цены на ваши даты?</b><span>Пришлём стоимость путёвки с лечением на нужные даты и количество человек.</span></div><div class="band-btns"><a class="btn" href="#quiz" data-goal="cta_prices">Узнать цены на мои даты</a><button type="button" class="btn ghost" data-callback data-goal="cta_prices_cb">Перезвоните мне</button></div></div></section>
+<section class="band"><div class="wrap band-in"><div><b>Нужны цены на ваши даты?</b><span>Пришлём стоимость путёвки с лечением на нужные даты и количество человек.</span></div><div class="band-btns"><a class="btn" href="#quiz" data-goal="cta_prices">Узнать цены на мои даты</a><button type="button" class="btn ghost" data-callback data-goal="cta_prices_cb">Написать нам</button></div></div></section>
 
 <section id="how" class="block">
   <div class="wrap">
-    <div class="sec-head"><h2>Как всё будет</h2><p>С первого звонка и до приезда в санаторий с вами на связи один и тот же человек.</p></div>
+    <div class="sec-head"><h2>Как всё будет</h2><p>С первого письма и до приезда в санаторий с вами на связи один и тот же человек.</p></div>
     <ol class="steps">
       <li><b>Вы рассказываете о себе</b><span>Пять простых вопросов: куда хочется, когда, на сколько дней и какой бюджет.</span></li>
       <li><b>Мы ищем санаторий для вас</b><span>Смотрим, где хорошая программа, удобные номера и есть места на ваши даты.</span></li>
-      <li><b>Присылаем 2–3 варианта</b><span>С ценами и понятным описанием, что входит в путёвку. Ответим на любые вопросы.</span></li>
+      <li><b>Присылаем 2–3 варианта на почту</b><span>С ценами и понятным описанием, что входит в путёвку. На вопросы отвечаем там же, в переписке.</span></li>
       <li><b>Помогаем собраться</b><span>Бронируем путёвку, подбираем билеты до Минеральных Вод, вас встретят и довезут до санатория.</span></li>
     </ol>
   </div>
@@ -136,7 +136,7 @@
       <p>Ответьте на 5 вопросов — подберём 2–3 подходящих санатория и пришлём цены на ваши даты.</p>
       <ul class="aside-list">
         <li>Бесплатно и ни к чему не обязывает</li>
-        <li>Перезвоним или напишем в мессенджер — как удобно вам</li>
+        <li>Ответим письмом — спокойно прочитаете, когда удобно</li>
         <li>Оплата — только после подтверждения мест</li>
       </ul>
     </div>
@@ -188,15 +188,10 @@
       </div>
       <div class="qstep" data-step="5">
         <p class="qtitle">Куда прислать подбор?</p>
+        <p class="qhint">Пришлём 2–3 варианта санаториев с ценами письмом — спокойно прочитаете и ответите, когда удобно.</p>
         <label class="fld">Как к вам обращаться<input name="name" id="name" autocomplete="name" required></label>
-        <label class="fld">Телефон<input name="phone" id="phone" type="tel" autocomplete="tel" value="+7 " required></label>
-        <p class="qhint">Как удобнее связаться</p>
-        <div class="opts four">
-          <label><input type="radio" name="channel" value="Перезвонить" checked>Звонок</label>
-          <label><input type="radio" name="channel" value="WhatsApp">WhatsApp</label>
-          <label><input type="radio" name="channel" value="Telegram">Telegram</label>
-          <label><input type="radio" name="channel" value="MAX">MAX</label>
-        </div>
+        <label class="fld">Электронная почта<input name="email" id="email" type="email" autocomplete="email" inputmode="email" placeholder="name@mail.ru" required></label>
+        <label class="fld">Телефон <small class="fld-note">— необязательно, если захотите, чтобы мы позвонили</small><input name="phone" id="phone" type="tel" autocomplete="tel" placeholder="+7"></label>
         <label class="fld">Комментарий, если есть <small class="fld-note">— без диагнозов и медицинских данных</small><textarea name="comment" id="comment" rows="2" placeholder="Пожелания, город отправления"></textarea></label>
         <label class="chk"><input type="checkbox" name="privacy_consent" id="privacy_consent" value="yes" required><span>Согласен на обработку персональных данных на условиях <a href="/consent.html" target="_blank">согласия</a> и <a href="/privacy.html" target="_blank">политики</a></span></label>
       </div>
@@ -210,7 +205,7 @@
     </form>
     <div class="done" id="done" hidden>
       <h3>Спасибо, заявка принята</h3>
-      <p>Подберём санатории и свяжемся с вами в течение рабочего дня.</p>
+      <p>Пришлём варианты санаториев на вашу почту в течение рабочего дня. Если письма нет — загляните в папку «Спам».</p>
     </div>
   </div>
 </section>
@@ -238,7 +233,7 @@
 </section>
 
 <section class="cta">
-  <div class="wrap cta-in"><h2>Расскажите, что для вас важно, — остальное подберём</h2><a class="btn btn-lg light" href="#quiz" data-goal="cta_bottom">Подобрать санаторий</a><button type="button" class="btn btn-lg ghost-light" data-callback data-goal="cb_bottom">Перезвоните мне</button></div>
+  <div class="wrap cta-in"><h2>Расскажите, что для вас важно, — остальное подберём</h2><a class="btn btn-lg light" href="#quiz" data-goal="cta_bottom">Подобрать санаторий</a><button type="button" class="btn btn-lg ghost-light" data-callback data-goal="cb_bottom">Написать нам</button></div>
 </section>
 
 <footer class="foot">
@@ -253,20 +248,21 @@
 <div class="cb" id="cb" hidden role="dialog" aria-modal="true" aria-labelledby="cbTitle">
   <form class="cb-box" id="cbForm" novalidate>
     <button type="button" class="cb-x" data-cb-close aria-label="Закрыть">×</button>
-    <h3 id="cbTitle">Перезвоним и подберём санаторий</h3>
-    <p class="qhint">Оставьте номер — менеджер перезвонит в течение рабочего дня.</p>
+    <h3 id="cbTitle">Напишем вам на почту</h3>
+    <p class="qhint">Оставьте имя и почту — пришлём варианты санаториев и ответим на вопросы письмом.</p>
     <label class="fld">Как к вам обращаться<input name="name" id="cbName" autocomplete="name" required></label>
-    <label class="fld">Телефон<input name="phone" id="cbPhone" type="tel" autocomplete="tel" value="+7 " required></label>
-    <label class="fld">Удобное время<select name="time" id="cbTime"><option>Любое</option><option>Утром (9–12)</option><option>Днём (12–17)</option><option>Вечером (17–20)</option></select></label>
+    <label class="fld">Электронная почта<input name="email" id="cbEmail" type="email" autocomplete="email" inputmode="email" placeholder="name@mail.ru" required></label>
+    <label class="fld">Ваш вопрос или пожелания <small class="fld-note">— необязательно, без диагнозов</small><textarea name="comment" id="cbComment" rows="2" placeholder="Курорт, даты, сколько человек"></textarea></label>
+    <label class="fld">Телефон <small class="fld-note">— необязательно, если удобнее созвониться</small><input name="phone" id="cbPhone" type="tel" autocomplete="tel" placeholder="+7"></label>
     <label class="chk"><input type="checkbox" name="privacy_consent" id="cbConsent" value="yes" required><span>Согласен на обработку персональных данных на условиях <a href="/consent.html" target="_blank">согласия</a> и <a href="/privacy.html" target="_blank">политики</a></span></label>
-    <button type="submit" class="btn btn-lg" id="cbSend">Жду звонка</button>
+    <button type="submit" class="btn btn-lg" id="cbSend">Получить ответ на почту</button>
     <p class="qstatus" id="cbStatus" role="status"></p>
-    <div class="cb-done" id="cbDone" hidden><h3>Спасибо!</h3><p>Перезвоним в течение рабочего дня.</p></div>
+    <div class="cb-done" id="cbDone" hidden><h3>Спасибо!</h3><p>Напишем вам на почту в течение рабочего дня. Если письма нет — загляните в «Спам».</p></div>
   </form>
 </div>
-<div class="sticky" id="sticky"><a class="btn" href="#quiz" data-goal="cta_sticky">Подобрать санаторий</a><button type="button" class="btn ghost" data-callback data-goal="cb_sticky" aria-label="Заказать обратный звонок">Перезвоните</button></div>
+<div class="sticky" id="sticky"><a class="btn" href="#quiz" data-goal="cta_sticky">Подобрать санаторий</a><button type="button" class="btn ghost" data-callback data-goal="cb_sticky" aria-label="Написать нам">Написать</button></div>
 <div class="ck" id="ck" hidden><p>Сайт использует cookie и сервис Яндекс Метрика для статистики посещений. Продолжая пользоваться сайтом, вы соглашаетесь с этим. Подробнее — в <a href="/privacy.html#cookie">политике</a>.</p><button type="button" class="btn btn-sm" id="ckOk">Понятно</button></div>
-<script src="/config.js?v=14"></script>
-<script src="/app.js?v=14"></script>
+<script src="/config.js?v=15"></script>
+<script src="/app.js?v=15"></script>
 </body>
 </html>

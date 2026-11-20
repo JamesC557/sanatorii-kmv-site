@@ -39,7 +39,10 @@
 
   function _unused(v) { var d = digits(v); if (d[0] === '8') d = '7' + d.slice(1); if (d[0] !== '7') d = '7' + d; d = d.slice(0, 11); var r = d.slice(1), o = '+7'; if (r.length) o += ' (' + r.slice(0, 3); if (r.length >= 3) o += ')'; if (r.length > 3) o += ' ' + r.slice(3, 6); if (r.length > 6) o += '-' + r.slice(6, 8); if (r.length > 8) o += '-' + r.slice(8, 10); return o + (r.length ? '' : ' '); }
 
-  // Обратный звонок
+  function emailOk(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(v || '').trim()) }
+  function phoneOk(v) { var d = digits(v); return d.length === 0 || d.length === 11 || (d.length === 1 && d === '7'); }
+  function phoneVal(v) { return digits(v).length === 11 ? fmt(v) : ''; }
+  // Короткая форма «Написать нам» (ответ на почту)
   var cb = document.getElementById('cb');
   if (cb) {
     var cbf = document.getElementById('cbForm'), cbp = document.getElementById('cbPhone');
@@ -47,16 +50,23 @@
     function cbClose() { cb.hidden = true }
     cb.addEventListener('click', function (e) { if (e.target === cb || e.target.hasAttribute('data-cb-close')) cbClose(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cbClose(); });
-    cbp.addEventListener('input', function () { cbp.value = fmt(cbp.value) });
+    cbp.addEventListener('input', function () { if (digits(cbp.value)) cbp.value = fmt(cbp.value) });
     cbf.addEventListener('submit', function (e) {
       e.preventDefault();
       var nm = document.getElementById('cbName'), st = document.getElementById('cbStatus');
-      if (!nm.value.trim() || digits(cbp.value).length !== 11 || !document.getElementById('cbConsent').checked) { st.textContent = 'Проверьте имя, телефон и согласие'; return; }
+      var em = document.getElementById('cbEmail');
+      [nm, em, cbp].forEach(function (f) { f.closest('label').classList.remove('has-error') });
+      var bad = [];
+      if (!nm.value.trim()) { bad.push('имя'); nm.closest('label').classList.add('has-error'); }
+      if (!emailOk(em.value)) { bad.push('почту'); em.closest('label').classList.add('has-error'); }
+      if (!phoneOk(cbp.value)) { bad.push('телефон'); cbp.closest('label').classList.add('has-error'); }
+      if (!document.getElementById('cbConsent').checked) bad.push('согласие');
+      if (bad.length) { st.textContent = 'Проверьте: ' + bad.join(', '); return; }
       var b = new URLSearchParams();
-      b.set('product_id', C.productId); b.set('tour_name', C.productName + ' — обратный звонок'); b.set('format', 'обратный звонок');
-      b.set('source', C.source.replace('квиз', 'обратный звонок')); b.set('submission_id', (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'cb-' + Date.now());
-      b.set('name', nm.value.trim()); b.set('phone', cbp.value); b.set('adults', '1'); b.set('children', '0');
-      b.set('comment', 'Обратный звонок. Удобное время: ' + document.getElementById('cbTime').value); b.set('privacy_consent', 'yes');
+      b.set('product_id', C.productId); b.set('tour_name', C.productName + ' — вопрос по почте'); b.set('format', 'письмо');
+      b.set('source', C.source.replace('квиз', 'короткая форма')); b.set('submission_id', (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'cb-' + Date.now());
+      b.set('name', nm.value.trim()); b.set('email', em.value.trim()); b.set('phone', phoneVal(cbp.value)); b.set('adults', '1'); b.set('children', '0');
+      b.set('comment', 'Короткая форма. ' + (document.getElementById('cbComment').value.trim() || 'Без комментария') + (phoneVal(cbp.value) ? ' · Можно позвонить' : ' · Только почта')); b.set('privacy_consent', 'yes');
       b.set('page_url', location.href); b.set('first_landing_page', load('first_landing') || location.href);
       keys.forEach(function (k) { var v = params.get(k) || load(k); if (v) b.set(k, v); });
       if (C.endpoint) fetch(C.endpoint, { method: 'POST', body: b, keepalive: true }).catch(function () {});
@@ -95,18 +105,20 @@
 
   function digits(v) { return String(v || '').replace(/\D/g, '') }
   function fmt(v) { var d = digits(v); if (d[0] === '8') d = '7' + d.slice(1); if (d[0] !== '7') d = '7' + d; d = d.slice(0, 11); var r = d.slice(1), o = '+7'; if (r.length) o += ' (' + r.slice(0, 3); if (r.length >= 3) o += ')'; if (r.length > 3) o += ' ' + r.slice(3, 6); if (r.length > 6) o += '-' + r.slice(6, 8); if (r.length > 8) o += '-' + r.slice(8, 10); return o + (r.length ? '' : ' '); }
-  phone.addEventListener('input', function () { phone.value = fmt(phone.value) });
+  phone.addEventListener('input', function () { if (digits(phone.value)) phone.value = fmt(phone.value) });
 
   function val(n) { var el = form.querySelector('[name="' + n + '"]:checked') || form.querySelector('[name="' + n + '"]:not([type=radio]):not([type=checkbox])'); return el ? el.value.trim() : ''; }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var ok = true;
-    [form.name, phone].forEach(function (f) { f.closest('label').classList.remove('has-error') });
-    if (!form.name.value.trim()) { form.name.closest('label').classList.add('has-error'); ok = false; }
-    if (digits(phone.value).length !== 11) { phone.closest('label').classList.add('has-error'); ok = false; }
-    if (!form.privacy_consent.checked) ok = false;
-    if (!ok) { status.textContent = 'Проверьте имя, телефон и согласие на обработку данных'; return; }
+    var email = form.email, bad = [];
+    [form.name, email, phone].forEach(function (f) { f.closest('label').classList.remove('has-error') });
+    if (!form.name.value.trim()) { form.name.closest('label').classList.add('has-error'); bad.push('имя'); }
+    if (!emailOk(email.value)) { email.closest('label').classList.add('has-error'); bad.push('почту'); }
+    if (!phoneOk(phone.value)) { phone.closest('label').classList.add('has-error'); bad.push('телефон'); }
+    if (!form.privacy_consent.checked) bad.push('согласие на обработку данных');
+    if (bad.length) { status.textContent = 'Проверьте: ' + bad.join(', '); return; }
 
     var profiles = [].map.call(form.querySelectorAll('input[name=profile]:checked'), function (x) { return x.value }).join(', ');
     var summary = [
@@ -115,7 +127,7 @@
       'Заезд: ' + (val('month') || '—') + ', длительность: ' + (val('nights') || '—'),
       'Возраст: ' + (val('age') || '—') + ', бюджет на чел.: ' + (val('budget') || '—'),
       'Дорога и трансфер: ' + (form.need_trip.checked ? 'нужны' : 'не нужны'),
-      'Связь: ' + val('channel'),
+      'Связь: ' + (phoneVal(phone.value) ? 'почта, можно позвонить' : 'только почта'),
       val('comment') ? 'Комментарий: ' + val('comment') : ''
     ].filter(Boolean).join('\n');
 
@@ -123,7 +135,7 @@
     var b = new URLSearchParams();
     b.set('product_id', C.productId); b.set('tour_name', C.productName); b.set('format', 'санаторий');
     b.set('source', C.source); b.set('submission_id', id);
-    b.set('name', form.name.value.trim()); b.set('phone', phone.value);
+    b.set('name', form.name.value.trim()); b.set('email', email.value.trim()); b.set('phone', phoneVal(phone.value));
     b.set('adults', String(Math.max(1, +form.adults.value || 1))); b.set('children', String(Math.max(0, +form.children.value || 0)));
     b.set('comment', summary); b.set('privacy_consent', 'yes');
     b.set('page_url', location.href); b.set('first_landing_page', load('first_landing') || location.href);
