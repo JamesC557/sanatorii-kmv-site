@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">Санатории КМВ — светлый логотип</title>
+  <desc id="desc">Подбор санатория под ваше лечение</desc>
+  <g transform="translate(44 64)">
+    <rect x="5" y="5" width="262" height="262" rx="65" fill="none" stroke="#FFFFFF" stroke-width="10"/>
+    <path d="M31 182 101 91l38 48 35-75 71 118H31Z" fill="#FFFFFF"/>
+    <path d="M113 122 101 91l-21 27 21-11 12 15Zm50-34 11-24 24 40-24-18-11 2Z" fill="#24584A" opacity=".32"/>
+    <path d="M73 202c31-18 69-18 100 0 22 12 43 13 66 1" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/>
+    <path d="M150 167c0 16-12 28-27 28s-27-12-27-28c0-15 27-48 27-48s27 33 27 48Z" fill="#E2A64A"/>
+  </g>
+  <g transform="translate(360 0)" fill="#FFFFFF">
+    <text x="0" y="194" font-family="Prata, Georgia, serif" font-size="83" letter-spacing=".4">Санатории КМВ</text>
+    <rect x="2" y="222" width="640" height="4" rx="2" fill="#E2A64A"/>
+    <text x="2" y="277" font-family="Manrope, Arial, sans-serif" font-size="31" font-weight="500" letter-spacing="2.8">подбор под ваше лечение</text>
+  </g>
+</svg>
