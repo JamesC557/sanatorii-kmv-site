@@ -179,7 +179,7 @@
         </div>
         <label class="fld">Бюджет на одного за всю путёвку<select name="budget" id="budget">
           <option value="">Выберите</option><option>до 60 тыс. ₽</option><option>60–100 тыс. ₽</option><option>100–150 тыс. ₽</option><option>больше 150 тыс. ₽</option><option>Не знаю, подскажите</option></select></label>
-        <label class="chk"><input type="checkbox" name="need_trip" id="need_trip" value="yes" checked>Нужна помощь с дорогой и трансфером</label>
+        <label class="chk"><input type="checkbox" name="need_trip" id="need_trip" value="yes" checked><span>Нужна помощь с дорогой и трансфером</span></label>
       </div>
       <div class="qstep" data-step="5">
         <p class="qtitle">Куда прислать подбор?</p>
@@ -193,7 +193,7 @@
           <label><input type="radio" name="channel" value="MAX">MAX</label>
         </div>
         <label class="fld">Комментарий, если есть<textarea name="comment" id="comment" rows="2" placeholder="Пожелания, город отправления. Пожалуйста, не указывайте диагнозы"></textarea></label>
-        <label class="chk"><input type="checkbox" name="privacy_consent" id="privacy_consent" value="yes" required>Согласен на обработку персональных данных на условиях <a href="/consent.html" target="_blank">согласия</a> и <a href="/privacy.html" target="_blank">политики</a></label>
+        <label class="chk"><input type="checkbox" name="privacy_consent" id="privacy_consent" value="yes" required><span>Согласен на обработку персональных данных на условиях <a href="/consent.html" target="_blank">согласия</a> и <a href="/privacy.html" target="_blank">политики</a></span></label>
       </div>
       <div class="qnav">
         <button type="button" class="btn ghost" id="back" hidden>Назад</button>
@@ -253,7 +253,7 @@
     <label class="fld">Как к вам обращаться<input name="name" id="cbName" autocomplete="name" required></label>
     <label class="fld">Телефон<input name="phone" id="cbPhone" type="tel" autocomplete="tel" value="+7 " required></label>
     <label class="fld">Удобное время<select name="time" id="cbTime"><option>Любое</option><option>Утром (9–12)</option><option>Днём (12–17)</option><option>Вечером (17–20)</option></select></label>
-    <label class="chk"><input type="checkbox" name="privacy_consent" id="cbConsent" value="yes" required>Согласен на обработку персональных данных на условиях <a href="/consent.html" target="_blank">согласия</a> и <a href="/privacy.html" target="_blank">политики</a></label>
+    <label class="chk"><input type="checkbox" name="privacy_consent" id="cbConsent" value="yes" required><span>Согласен на обработку персональных данных на условиях <a href="/consent.html" target="_blank">согласия</a> и <a href="/privacy.html" target="_blank">политики</a></span></label>
     <button type="submit" class="btn btn-lg" id="cbSend">Жду звонка</button>
     <p class="qstatus" id="cbStatus" role="status"></p>
     <div class="cb-done" id="cbDone" hidden><h3>Спасибо!</h3><p>Перезвоним в течение рабочего дня.</p></div>
