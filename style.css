@@ -215,3 +215,5 @@ body[data-g="g2"] .hero-art{background-image:url(/img/hero-essentuki-desktop.jpg
 
 .cb-box{max-height:calc(100dvh - 32px);overflow-y:auto;-webkit-overflow-scrolling:touch}
 @media(max-width:720px){.cb-box{padding:22px 18px}.cb-box h3{font-size:24px}}
+
+@media(max-width:720px){.qnav{grid-template-columns:auto minmax(0,1fr)}.qnav .btn{padding:14px 16px;min-width:0}.qnav #next,.qnav #send{width:100%}}
