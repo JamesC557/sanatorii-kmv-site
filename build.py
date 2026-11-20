@@ -2,7 +2,7 @@
 """Собирает посадочные из template.html: одна страница на группу объявлений (запрос → объявление → страница)."""
 import re, os
 T = open('template.html', encoding='utf-8').read()
-V = '15'
+V = '16'
 IMG = {'std': 'price-standard', 'cmf': 'price-comfort', 'prm': 'price-premium'}
 def price(city_stars, name, rub, note):
     per = int(rub.replace(' ', ''))
