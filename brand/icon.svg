@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="15" fill="#24584A"/>
-  <path d="M9 43 23.5 21.5 30 30.5 38.5 16 55 43Z" fill="#FFFDF8"/>
-  <path d="M23.5 21.5 19.6 27.3 23.5 25.4 26.8 26ZM38.5 16 33.6 24.4 38.5 22 43.4 24.6Z" fill="#CFE3DE"/>
-  <path d="M10 51c4.5-3.6 9-3.6 13.5 0s9 3.6 13.5 0 9-3.6 13.5 0" fill="none" stroke="#E2A64A" stroke-width="4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Санатории КМВ">
+<rect width="64" height="64" rx="15" fill="#24584A"/>
+  <path d="M8 40 23 20l8 10 9-16 16 26H8Z" fill="#FFFDF8"/>
+  <path d="M32 29c0 0-7 8.2-7 13.2a7 7 0 0 0 14 0C39 37.2 32 29 32 29Z" fill="#E2A64A"/>
+  <path d="M11 49c7-5.5 14-5.5 21 0s14 5.5 21 0v6c-7 5.5-14 5.5-21 0s-14-5.5-21 0v-6Z" fill="#FFFDF8"/>
 </svg>
