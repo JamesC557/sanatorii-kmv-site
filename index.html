@@ -39,6 +39,7 @@
         <a class="btn btn-lg" href="#quiz" data-goal="cta_hero">Подобрать санаторий</a>
         <button type="button" class="btn ghost btn-lg" data-callback data-goal="cb_hero">Заказать обратный звонок</button>
         <span class="hero-note">Подбор бесплатно · перезвоним в течение рабочего дня</span>
+        <span class="hero-warn">Имеются противопоказания. Необходима консультация специалиста.</span>
       </div>
     </div>
     <ul class="promise">
@@ -53,14 +54,14 @@
   <div class="wrap">
     <p class="eyebrow">Что лечат на Кавминводах</p>
     <div class="tiles">
-      <a href="#quiz" data-profile="ЖКТ, печень" class="tile"><img src="/img/treat-gi.jpg" alt="" loading="lazy" width="800" height="800"><span>Желудок, кишечник, печень</span></a>
-      <a href="#quiz" data-profile="Суставы, позвоночник" class="tile"><img src="/img/treat-joints.jpg" alt="" loading="lazy" width="800" height="800"><span>Суставы и позвоночник</span></a>
-      <a href="#quiz" data-profile="Сердце, сосуды" class="tile"><img src="/img/treat-heart.jpg" alt="" loading="lazy" width="800" height="800"><span>Сердце и сосуды</span></a>
-      <a href="#quiz" data-profile="Нервная система" class="tile"><img src="/img/treat-nerves.jpg" alt="" loading="lazy" width="800" height="800"><span>Нервная система</span></a>
-      <a href="#quiz" data-profile="Диабет, обмен веществ" class="tile"><img src="/img/treat-diabetes.jpg" alt="" loading="lazy" width="800" height="800"><span>Диабет и обмен веществ</span></a>
-      <a href="#quiz" data-profile="Дыхание" class="tile"><img src="/img/treat-breath.jpg" alt="" loading="lazy" width="800" height="800"><span>Органы дыхания</span></a>
-      <a href="#quiz" data-profile="Урология, гинекология" class="tile"><img src="/img/treat-uro.jpg" alt="" loading="lazy" width="800" height="800"><span>Урология, гинекология</span></a>
-      <a href="#quiz" data-profile="Общее оздоровление" class="tile"><img src="/img/treat-wellness.jpg" alt="" loading="lazy" width="800" height="800"><span>Оздоровление и отдых</span></a>
+      <a href="#quiz" class="tile"><img src="/img/treat-gi.jpg" alt="" loading="lazy" width="800" height="800"><span>Желудок, кишечник, печень</span></a>
+      <a href="#quiz" class="tile"><img src="/img/treat-joints.jpg" alt="" loading="lazy" width="800" height="800"><span>Суставы и позвоночник</span></a>
+      <a href="#quiz" class="tile"><img src="/img/treat-heart.jpg" alt="" loading="lazy" width="800" height="800"><span>Сердце и сосуды</span></a>
+      <a href="#quiz" class="tile"><img src="/img/treat-nerves.jpg" alt="" loading="lazy" width="800" height="800"><span>Нервная система</span></a>
+      <a href="#quiz" class="tile"><img src="/img/treat-diabetes.jpg" alt="" loading="lazy" width="800" height="800"><span>Диабет и обмен веществ</span></a>
+      <a href="#quiz" class="tile"><img src="/img/treat-breath.jpg" alt="" loading="lazy" width="800" height="800"><span>Органы дыхания</span></a>
+      <a href="#quiz" class="tile"><img src="/img/treat-uro.jpg" alt="" loading="lazy" width="800" height="800"><span>Урология, гинекология</span></a>
+      <a href="#quiz" class="tile"><img src="/img/treat-wellness.jpg" alt="" loading="lazy" width="800" height="800"><span>Оздоровление и отдых</span></a>
     </div>
   </div>
 </section>
@@ -137,17 +138,14 @@
     <form id="q" novalidate>
       <div class="qbar"><span id="qbarFill"></span></div>
       <div class="qstep is-active" data-step="1">
-        <p class="qtitle">Что хотите лечить или поправить?</p>
-        <p class="qhint">Можно выбрать несколько</p>
+        <p class="qtitle">Какой формат поездки интересует?</p>
+        <p class="qhint">Можно выбрать несколько. Диагнозы указывать не нужно — программу лечения подберёт врач санатория.</p>
         <div class="opts">
-          <label><input type="checkbox" name="profile" value="ЖКТ, печень">Желудок, кишечник, печень</label>
-          <label><input type="checkbox" name="profile" value="Суставы, позвоночник">Суставы, позвоночник</label>
-          <label><input type="checkbox" name="profile" value="Сердце, сосуды">Сердце, сосуды</label>
-          <label><input type="checkbox" name="profile" value="Нервная система">Нервная система, стресс</label>
-          <label><input type="checkbox" name="profile" value="Диабет, обмен веществ">Диабет, обмен веществ</label>
-          <label><input type="checkbox" name="profile" value="Дыхание">Органы дыхания</label>
-          <label><input type="checkbox" name="profile" value="Урология, гинекология">Урология, гинекология</label>
-          <label><input type="checkbox" name="profile" value="Общее оздоровление">Общее оздоровление, отдых</label>
+          <label><input type="checkbox" name="profile" value="Санаторий с программой лечения">Санаторий с программой лечения</label>
+          <label><input type="checkbox" name="profile" value="Оздоровление и отдых">Оздоровление и отдых</label>
+          <label><input type="checkbox" name="profile" value="Поездка для родителей">Поездка для родителей</label>
+          <label><input type="checkbox" name="profile" value="Поездка с детьми">Поездка с детьми</label>
+          <label><input type="checkbox" name="profile" value="Нужна консультация">Пока не знаю, нужна консультация</label>
         </div>
       </div>
       <div class="qstep" data-step="2">
@@ -194,8 +192,8 @@
           <label><input type="radio" name="channel" value="Telegram">Telegram</label>
           <label><input type="radio" name="channel" value="MAX">MAX</label>
         </div>
-        <label class="fld">Комментарий, если есть<textarea name="comment" id="comment" rows="2" placeholder="Диагноз, пожелания, город отправления"></textarea></label>
-        <label class="chk"><input type="checkbox" name="privacy_consent" id="privacy_consent" value="yes" required>Согласен на обработку персональных данных по&nbsp;<a href="/privacy.html" target="_blank">политике</a></label>
+        <label class="fld">Комментарий, если есть<textarea name="comment" id="comment" rows="2" placeholder="Пожелания, город отправления. Пожалуйста, не указывайте диагнозы"></textarea></label>
+        <label class="chk"><input type="checkbox" name="privacy_consent" id="privacy_consent" value="yes" required>Согласен на обработку персональных данных на условиях <a href="/consent.html" target="_blank">согласия</a> и <a href="/privacy.html" target="_blank">политики</a></label>
       </div>
       <div class="qnav">
         <button type="button" class="btn ghost" id="back" hidden>Назад</button>
@@ -240,8 +238,10 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p id="legal">Реквизиты продавца будут указаны здесь.</p>
-    <p><a href="/privacy.html">Политика обработки персональных данных</a></p>
+    <p class="warn">Имеются противопоказания. Необходима консультация специалиста.</p>
+    <p id="legal">ИП Шарапов Доржи Александрович · ИНН 032625432575 · ОГРНИП 324030000043612<br>670017, Республика Бурятия, г. Улан-Удэ, ул. Соборная, д. 4/2, кв. 1</p>
+    <p><a href="/privacy.html">Политика обработки персональных данных</a> · <a href="/consent.html">Согласие на обработку персональных данных</a> · <a href="/privacy.html#cookie">Cookie и Яндекс Метрика</a></p>
+    <p class="fine">Информация на сайте носит справочный характер и не является публичной офертой.</p>
   </div>
 </footer>
 
@@ -253,12 +253,13 @@
     <label class="fld">Как к вам обращаться<input name="name" id="cbName" autocomplete="name" required></label>
     <label class="fld">Телефон<input name="phone" id="cbPhone" type="tel" autocomplete="tel" value="+7 " required></label>
     <label class="fld">Удобное время<select name="time" id="cbTime"><option>Любое</option><option>Утром (9–12)</option><option>Днём (12–17)</option><option>Вечером (17–20)</option></select></label>
-    <label class="chk"><input type="checkbox" name="privacy_consent" id="cbConsent" value="yes" required>Согласен на обработку персональных данных по&nbsp;<a href="/privacy.html" target="_blank">политике</a></label>
+    <label class="chk"><input type="checkbox" name="privacy_consent" id="cbConsent" value="yes" required>Согласен на обработку персональных данных на условиях <a href="/consent.html" target="_blank">согласия</a> и <a href="/privacy.html" target="_blank">политики</a></label>
     <button type="submit" class="btn btn-lg" id="cbSend">Жду звонка</button>
     <p class="qstatus" id="cbStatus" role="status"></p>
     <div class="cb-done" id="cbDone" hidden><h3>Спасибо!</h3><p>Перезвоним в течение рабочего дня.</p></div>
   </form>
 </div>
+<div class="ck" id="ck" hidden><p>Сайт использует cookie и сервис Яндекс Метрика для статистики посещений. Продолжая пользоваться сайтом, вы соглашаетесь с этим. Подробнее — в <a href="/privacy.html#cookie">политике</a>.</p><button type="button" class="btn btn-sm" id="ckOk">Понятно</button></div>
 <script src="/config.js"></script>
 <script src="/app.js"></script>
 </body>

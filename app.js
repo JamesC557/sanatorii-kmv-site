@@ -1,9 +1,10 @@
 (function () {
   var C = window.SITE_CONFIG || {};
+  try { var ck = document.getElementById('ck'); if (ck && !localStorage.getItem('ck_ok')) { ck.hidden = false; document.getElementById('ckOk').addEventListener('click', function () { try { localStorage.setItem('ck_ok', '1') } catch (e) {} ck.hidden = true; }); } } catch (e) {}
   // Метрика
   if (C.metrikaId) {
     (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
-    ym(C.metrikaId, 'init', { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
+    ym(C.metrikaId, 'init', { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });
   }
   function goal(n) { try { if (C.metrikaId) ym(C.metrikaId, 'reachGoal', n); } catch (e) {} }
 
@@ -35,9 +36,6 @@
   }
   if (gkey) document.body.dataset.g = gkey;
   if (gkey) document.querySelectorAll('.resort[data-g="' + gkey + '"]').forEach(function (el) { el.classList.add('is-match') });
-  document.querySelectorAll('[data-profile]').forEach(function (a) {
-    a.addEventListener('click', function () { var c = document.querySelector('input[name=profile][value="' + a.dataset.profile + '"]'); if (c) c.checked = true; });
-  });
 
   function _unused(v) { var d = digits(v); if (d[0] === '8') d = '7' + d.slice(1); if (d[0] !== '7') d = '7' + d; d = d.slice(0, 11); var r = d.slice(1), o = '+7'; if (r.length) o += ' (' + r.slice(0, 3); if (r.length >= 3) o += ')'; if (r.length > 3) o += ' ' + r.slice(3, 6); if (r.length > 6) o += '-' + r.slice(6, 8); if (r.length > 8) o += '-' + r.slice(8, 10); return o + (r.length ? '' : ' '); }
 
@@ -104,7 +102,7 @@
 
     var profiles = [].map.call(form.querySelectorAll('input[name=profile]:checked'), function (x) { return x.value }).join(', ');
     var summary = [
-      'Лечение: ' + profiles,
+      'Формат: ' + profiles,
       'Курорт: ' + (val('resort') || '—'),
       'Заезд: ' + (val('month') || '—') + ', длительность: ' + (val('nights') || '—'),
       'Возраст: ' + (val('age') || '—') + ', бюджет на чел.: ' + (val('budget') || '—'),
